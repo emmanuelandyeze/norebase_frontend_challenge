@@ -7,7 +7,7 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa6';
 const CoinsTable = () => {
 	const [coins, setCoins] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
-	const [loading, setLoading] = useState(true); // Loading state
+	const [loading, setLoading] = useState(true); 
 	const itemsPerPage = 10;
 
 	useEffect(() => {
@@ -15,7 +15,7 @@ const CoinsTable = () => {
 			setLoading(true); // Start loading
 			const data = await fetchCoins();
 			setCoins(data);
-			setLoading(false); // Stop loading once data is fetched
+			setLoading(false);
 		}
 		loadCoins();
 	}, []);
@@ -29,7 +29,7 @@ const CoinsTable = () => {
 
 	return (
 		<div className="container mx-auto max-w-full border rounded-lg shadow-lg">
-			{/* Table Header for Medium and Larger Screens */}
+			{/* Table for Medium and Larger Screens */}
 			<table className="hidden md:table w-full">
 				<thead>
 					<tr>
@@ -96,7 +96,7 @@ const CoinsTable = () => {
 				</tbody>
 			</table>
 
-			{/* Responsive Grid for Small Screens */}
+			{/* Table for Smaller Screens */}
 			<div className="md:hidden">
 				{loading
 					? Array.from({ length: 10 }).map((_, index) => (
